@@ -4,12 +4,6 @@ import { useState } from "react";
 import Titulo from "../input/titulo";
 
 
-const ResultadoContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-`
-
 const Form = styled.form`
   display: flex;
   flex-direction: column;

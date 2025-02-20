@@ -3,16 +3,14 @@ import styled from "styled-components";
 import Input from "../input/input";
 import Titulo from "../input/titulo";
 
-const FormContainer = styled.form`
-  width: 300px;
-  padding: 20px 0;
-  background-image: linear-gradient(90deg, #002F52 35%, #326589);
-  border-radius: 8px;
-  text-align: center;
-  display: center;
-  flex-direction: column;
+
+const AppContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(90deg, #002F52 35%,#326589);
   
-`;
+
+ `
 
 
 
@@ -20,11 +18,20 @@ const InputContainer = styled.div`
   display: center;
   flex-direction: column;
   
+  
+  
+  
 `;
 
 const Label = styled.label`
-  font-size: 14px;
+  font-size: 20px;
   margin-bottom: 5px;
+  color: #f7f7f2;
+  padding: 2px 50px;
+  display: flex;
+  
+  
+  
 `;
 
 
@@ -37,6 +44,7 @@ const Button = styled.button`
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
+  
   
   &:hover {
     background: #0056b3;
@@ -66,11 +74,11 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Dados do Login:", formData);
-    
+
   };
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
+    <AppContainer onSubmit={handleSubmit}>
       <Titulo>Login</Titulo>
       <InputField
         label="E-mail"
@@ -85,7 +93,7 @@ const LoginForm = () => {
         onChange={(e) => handleChange({ target: { name: "senha", value: e.target.value } })}
       />
       <Button type="submit">Entrar</Button>
-    </FormContainer>
+    </AppContainer>
   );
 };
 

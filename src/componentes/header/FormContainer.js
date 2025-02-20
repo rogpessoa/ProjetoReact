@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 const AppOpcoes = styled.ul`
-  display: flex;
+  display: left;
   background-image: linear-gradient(90deg, #002F52 35%,rgb(243, 244, 245));
   
   

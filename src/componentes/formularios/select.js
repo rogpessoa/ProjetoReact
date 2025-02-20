@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Titulo from "../input/titulo";
 
 const Opcao = styled.h2`
     font-size: 16px;
@@ -8,7 +9,7 @@ const Opcao = styled.h2`
 `
 
 const FormContainer = styled.form`
-  width: 300px;
+  width: 600px;
   margin: auto;
   padding: 20px;
   background-image: linear-gradient(90deg, #002F52 35%, #326589);
@@ -20,7 +21,7 @@ const FormContainer = styled.form`
 `;
 
 const Select = styled.select`
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
@@ -55,7 +56,7 @@ const SelectForm = () => {
 
   return (
     <FormContainer onSubmit={handleSubmit}>
-      <Opcao>Selecione uma opção</Opcao>
+      <Titulo>SELECIONE UMA OPÇÃO</Titulo>
       <Select value={selectedOption} onChange={handleChange} required>
         <option value="">Escolha uma opção</option>
         <option value="email">E-MAIL</option>
