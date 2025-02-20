@@ -1,20 +1,22 @@
-import FormContainer from './componentes/header/FormContainer.js';
-import FormularioCadastro from './componentes/formularios/cadastro.js';
-import LoginForm from './componentes/formularios/login.js';
-import SelectForm from './componentes/formularios/select.js';
+import styled from 'styled-components';
+import Header from './componentes/header/FormContainer.js';
+import Titulo from './componentes/input/titulo.js';
 
+const AppContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(90deg, #002F52 35%,#326589);
 
+ `
 
 
 function App() {
   return (
-    <FormContainer>
+    <AppContainer>
         
-        <FormularioCadastro></FormularioCadastro>
-        <LoginForm></LoginForm>
-        <SelectForm></SelectForm>
+       <Titulo> Sua experiência começa aqui...</Titulo>
       
-    </FormContainer>
+    </AppContainer>
  
    
   );

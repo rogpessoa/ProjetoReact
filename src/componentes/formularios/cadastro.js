@@ -1,8 +1,30 @@
-import Input from "../input/input";
 import styled from "styled-components";
-import FormContainer from "../header/FormContainer";
-import React, { useState } from "react";
+
+import { useState } from "react";
 import Titulo from "../input/titulo";
+
+
+const ResultadoContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+`
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
+
+const Input = styled.input`
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+`;
 
 const Button = styled.button`
   padding: 10px;
@@ -16,98 +38,43 @@ const Button = styled.button`
   }
 `;
 
+const AppContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(90deg, #002F52 35%,#326589);
 
-const FieldInput = styled.h3`
-   display: center;
-   flex-direction: column; 
-    
-    
-   
-`
+ `
 
+function Cadastro  ()  {
+  const [formData, setFormData] = useState({
+    nome: "",
+    matricula: "",
+    email: "",
+    dataNascimento: ""
+  });
 
-const Fields = styled.h3`
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 1px;
-    text-align: center;
-    display: center;
-    justify-content: flex;
-    align-items: center;
-`
-
-const CadastroDiv = styled.div`
-    margin-top: 30px;
-    display: center;
-    width: 100%;
-    justify-content: flex;
-    cursor: pointer;
-    align-items: flex;
-    
-`
-
-const InputField = ({ label, type, value, onChange }) => {
-    return (
-      <FieldInput>
-        {label}:
-        <Input type={type} value={value} onChange={onChange} required />
-      </FieldInput>
-    );
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  
-  // Componente FormularioCadastro
-  const FormularioCadastro = () => {
-    const [formData, setFormData] = useState({
-      nomeCompleto: "",
-      matricula: "",
-      email: "",
-      dataNascimento: ""
-    });
-  
-    const handleChange = (e) => {
-      setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      alert("Cadastro realizado com sucesso!");
-      console.log(formData);
-    };
-  
-    return (
-      <FormContainer>
-        <CadastroDiv>
-          <Titulo>Cadastro</Titulo>
-            <Fields onSubmit={handleSubmit}>
-              <InputField
-                label="Nome Completo"
-                type="text"
-                value={formData.nomeCompleto}
-                onChange={(e) => handleChange({ target: { name: "nomeCompleto", value: e.target.value } })}
-              />
-              <InputField
-                label="Matrícula"
-                type="text"
-                value={formData.matricula}
-                onChange={(e) => handleChange({ target: { name: "matricula", value: e.target.value } })}
-              />
-              <InputField
-                label="E-mail"
-                type="email"
-                value={formData.email}
-                onChange={(e) => handleChange({ target: { name: "email", value: e.target.value } })}
-              />
-              <InputField
-                label="Data de Nascimento"
-                type="date"
-                value={formData.dataNascimento}
-                onChange={(e) => handleChange({ target: { name: "dataNascimento", value: e.target.value } })}
-              />
-              <Button type="submit">Cadastrar</Button>
-            </Fields>
-        </CadastroDiv>
-      </FormContainer>
-    );
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Dados cadastrados:", formData);
   };
-  
-  export default FormularioCadastro;
+
+  return (
+    <AppContainer>
+      <Titulo>Cadastro</Titulo>
+      <Form onSubmit={handleSubmit}>
+        <Input type="text" name="nome" placeholder="Nome Completo" onChange={handleChange} />
+        <Input type="text" name="matricula" placeholder="Matrícula" onChange={handleChange} />
+        <Input type="email" name="email" placeholder="Email" onChange={handleChange} />
+        <Input type="date" name="dataNascimento" onChange={handleChange} />
+        <Button type="submit">Cadastrar</Button>
+      </Form>
+      
+    </AppContainer>
+  );
+};
+
+export default Cadastro
